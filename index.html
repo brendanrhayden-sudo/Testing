@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forefront Complete Assessment & Protocol System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f0f4f8;
+            min-height: 100vh;
+        }
+
+        /* Navigation Styles */
+        .nav-container {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+
+        .nav-tab:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 4px 10px rgba(102,126,234,0.3);
+        }
+
+        /* Main Content Container */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Section Styles */
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Category Header */
+        .category-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(102,126,234,0.2);
+        }
+
+        .category-header h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .category-header p {
+            opacity: 0.95;
+            font-size: 1.1em;
+        }
+
+        /* Sub-navigation for test categories */
+        .sub-nav {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .sub-nav-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .sub-nav-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .sub-nav-btn {
+            padding: 8px 16px;
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+            font-weight: 500;
+            color: #4a5568;
+        }
+
+        .sub-nav-btn:hover {
+            border-color: #667eea;
+            background: #f0f7ff;
+        }
+
+        .sub-nav-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        /* Test Card Styles */
+        .test-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 5px solid #667eea;
+        }
+
+        /* Test subsections */
+        .test-subsection {
+            display: none;
+        }
+
+        .test-subsection.active {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+            }
+        }
+
+        .print-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(102,126,234,0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102,126,234,0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <h1 class="nav-title">Forefront Assessment & Protocol System</h1>
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="showSection('shoulder-tests', this)">Shoulder Tests</button>
+                <button class="nav-tab" onclick="showSection('ac-joint-tests', this)">AC Joint Tests</button>
+                <button class="nav-tab" onclick="showSection('rotator-cuff-tests', this)">Rotator Cuff Tests</button>
+                <button class="nav-tab" onclick="showSection('protocols', this)">Treatment Protocols</button>
+                <button class="nav-tab" onclick="showSection('decision-tree', this)">Clinical Decision</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        
+        <!-- SECTION 1: Shoulder/Scapular Tests -->
+        <section id="shoulder-tests" class="section active">
+            <div class="category-header">
+                <h2>Scapular Dyskinesis Assessment Battery</h2>
+                <p>Complete testing protocol for scapular movement dysfunction</p>
+            </div>
+
+            <div class="test-card">
+                <h3>Tests Available:</h3>
+                <ul>
+                    <li>McClure Scapular Dyskinesis Test</li>
+                    <li>Scapular Assistance Test (SAT)</li>
+                    <li>Scapular Retraction Test (SRT)</li>
+                    <li>Lateral Scapular Slide Test (LSST)</li>
+                    <li>Wall Push-Up Plus Test</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION 2: AC Joint Tests -->
+        <section id="ac-joint-tests" class="section">
+            <div class="category-header">
+                <h2>AC Joint Assessment Battery</h2>
+                <p>Evidence-based tests for acromioclavicular joint pathology</p>
+            </div>
+
+            <div class="test-card">
+                <h3>Tests Available:</h3>
+                <ul>
+                    <li>Cross-Body Adduction Test</li>
+                    <li>O'Brien's Test</li>
+                    <li>Paxinos Test</li>
+                    <li>AC Resisted Extension Test</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Rotator Cuff Tests -->
+        <section id="rotator-cuff-tests" class="section">
+            <div class="category-header">
+                <h2>Rotator Cuff Assessment Battery</h2>
+                <p>Comprehensive testing for all rotator cuff muscles</p>
+            </div>
+
+            <div class="test-card">
+                <h3>Tests Available:</h3>
+                <ul>
+                    <li>Empty Can Test (Jobe's)</li>
+                    <li>External Rotation Lag Sign</li>
+                    <li>Hornblower's Test</li>
+                    <li>Lift-Off Test</li>
+                    <li>Belly Press Test</li>
+                    <li>Bear Hug Test</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Treatment Protocols -->
+        <section id="protocols" class="section">
+            <div class="category-header">
+                <h2>Evidence-Based Treatment Protocols</h2>
+                <p>Complete exercise progressions based on assessment findings</p>
+            </div>
+
+            <div class="sub-nav">
+                <div class="sub-nav-title">Select Protocol Category:</div>
+                <div class="sub-nav-buttons">
+                    <button class="sub-nav-btn active" onclick="showProtocolCategory('scapular', this)">Scapular Protocols (S1-S5)</button>
+                    <button class="sub-nav-btn" onclick="showProtocolCategory('ac-joint-protocols', this)">AC Joint Protocols</button>
+                    <button class="sub-nav-btn" onclick="showProtocolCategory('rotator-cuff-protocols', this)">Rotator Cuff Protocols</button>
+                </div>
+            </div>
+
+            <!-- Scapular Protocols -->
+            <div id="scapular" class="test-subsection active">
+                <div class="test-card">
+                    <h3>Scapular Protocols Available:</h3>
+                    <ul>
+                        <li>Protocol S1: Serratus Anterior Insufficiency</li>
+                        <li>Protocol S2: Lower Trapezius Insufficiency</li>
+                        <li>Protocol S3: Pectoralis Minor Dominance</li>
+                        <li>Protocol S4: Global Dyskinesis</li>
+                        <li>Protocol S5: Thoracic-Driven Dysfunction</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- AC Joint Protocols -->
+            <div id="ac-joint-protocols" class="test-subsection">
+                <div class="test-card">
+                    <h3>AC Joint Protocols Available:</h3>
+                    <ul>
+                        <li>Protocol AC1: Type I-II Conservative</li>
+                        <li>Protocol AC2: Type III Conservative</li>
+                        <li>Protocol AC3: Post-Traumatic Arthropathy</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Rotator Cuff Protocols -->
+            <div id="rotator-cuff-protocols" class="test-subsection">
+                <div class="test-card">
+                    <h3>Rotator Cuff Protocols Available:</h3>
+                    <ul>
+                        <li>Protocol RC1: Reactive Tendinopathy</li>
+                        <li>Protocol RC2: Degenerative Tendinopathy</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Clinical Decision Tree -->
+        <section id="decision-tree" class="section">
+            <div class="category-header">
+                <h2>Clinical Decision Framework</h2>
+                <p>Evidence-based pathway from assessment to treatment</p>
+            </div>
+
+            <div class="test-card">
+                <h3>Decision Pathways:</h3>
+                <p>Assessment findings lead to specific protocol recommendations</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Print Button -->
+    <button class="print-button" onclick="window.print()">📄 Print</button>
+
+    <script>
+        // Fixed navigation functions with proper event parameter passing
+        function showSection(sectionId, buttonElement) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all nav tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+            
+            // Add active class to clicked tab
+            if (buttonElement) {
+                buttonElement.classList.add('active');
+            }
+        }
+
+        // Fixed protocol category navigation
+        function showProtocolCategory(categoryId, buttonElement) {
+            // Hide all protocol subsections
+            document.querySelectorAll('.test-subsection').forEach(subsection => {
+                subsection.classList.remove('active');
+            });
+            
+            // Remove active class from all sub-nav buttons
+            document.querySelectorAll('.sub-nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected category
+            const targetCategory = document.getElementById(categoryId);
+            if (targetCategory) {
+                targetCategory.classList.add('active');
+            }
+            
+            // Add active class to clicked button
+            if (buttonElement) {
+                buttonElement.classList.add('active');
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verify all sections exist
+            console.log('System initialized successfully');
+            
+            // Set default active section
+            const firstSection = document.querySelector('.section');
+            if (firstSection) {
+                firstSection.classList.add('active');
+            }
+            
+            const firstTab = document.querySelector('.nav-tab');
+            if (firstTab) {
+                firstTab.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
