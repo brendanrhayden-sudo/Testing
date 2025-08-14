@@ -13,19 +13,21 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f0f4f8;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            padding: 0;
         }
 
         /* Navigation Styles */
         .nav-container {
-            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            background: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(10px);
             color: white;
             padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
         .nav-content {
@@ -35,9 +37,13 @@
         }
 
         .nav-title {
-            font-size: 1.8em;
+            font-size: 2em;
             font-weight: 700;
             margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-tabs {
@@ -47,32 +53,34 @@
         }
 
         .nav-tab {
-            padding: 10px 20px;
+            padding: 12px 24px;
             background: rgba(255,255,255,0.1);
-            border: none;
+            border: 2px solid transparent;
             color: white;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 0.95em;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .nav-tab:hover {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.15);
             transform: translateY(-2px);
+            border-color: rgba(102,126,234,0.5);
         }
 
         .nav-tab.active {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            box-shadow: 0 4px 10px rgba(102,126,234,0.3);
+            box-shadow: 0 4px 15px rgba(102,126,234,0.4);
+            border-color: transparent;
         }
 
         /* Main Content Container */
         .main-container {
             max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
+            margin: 20px auto;
+            padding: 0 20px;
         }
 
         /* Section Styles */
@@ -86,83 +94,189 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         /* Category Header */
         .category-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 12px;
+            background: white;
+            color: #2d3748;
+            padding: 30px;
+            border-radius: 15px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(102,126,234,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 5px solid;
+            border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
         }
 
         .category-header h2 {
-            font-size: 2em;
-            margin-bottom: 10px;
+            font-size: 2.2em;
+            margin-bottom: 12px;
+            color: #1a202c;
         }
 
         .category-header p {
-            opacity: 0.95;
+            color: #4a5568;
             font-size: 1.1em;
         }
 
-        /* Sub-navigation for test categories */
+        /* Sub-navigation */
         .sub-nav {
             background: white;
-            padding: 20px;
-            border-radius: 12px;
+            padding: 25px;
+            border-radius: 15px;
             margin-bottom: 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
 
         .sub-nav-title {
-            font-size: 1.2em;
+            font-size: 1.3em;
             font-weight: 600;
             color: #2d3748;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
         .sub-nav-buttons {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         .sub-nav-btn {
-            padding: 8px 16px;
+            padding: 10px 20px;
             background: #f7fafc;
             border: 2px solid #e2e8f0;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 0.9em;
-            font-weight: 500;
+            font-weight: 600;
             color: #4a5568;
         }
 
         .sub-nav-btn:hover {
             border-color: #667eea;
-            background: #f0f7ff;
+            background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.1) 100%);
+            transform: translateY(-2px);
         }
 
         .sub-nav-btn.active {
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            border-color: #667eea;
+            border-color: transparent;
+            box-shadow: 0 4px 10px rgba(102,126,234,0.3);
         }
 
         /* Test Card Styles */
         .test-card {
             background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-left: 5px solid;
+            border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .test-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .test-card h3 {
+            color: #2d3748;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .test-card h4 {
+            color: #4a5568;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+
+        /* Test Details Styling */
+        .test-details {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .test-details strong {
+            color: #2d3748;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .sensitivity-specificity {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        /* Protocol Phases */
+        .phase-container {
+            background: #f8f9fa;
             border-radius: 12px;
             padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border-left: 5px solid #667eea;
+            margin: 20px 0;
+        }
+
+        .phase-header {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
+        }
+
+        .exercise-item {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 12px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .exercise-item h5 {
+            color: #2d3748;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .exercise-details {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .exercise-details li {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 25px;
+            margin-top: 10px;
+            line-height: 1.8;
+            color: #4a5568;
+        }
+
+        li {
+            margin: 8px 0;
         }
 
         /* Test subsections */
@@ -174,13 +288,29 @@
             display: block;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-tabs {
-                flex-direction: column;
-            }
+        /* Decision Tree Styling */
+        .decision-box {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
 
+        .decision-step {
+            background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.1) 100%);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .decision-step h4 {
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        /* Print Button */
         .print-button {
             position: fixed;
             bottom: 30px;
@@ -192,14 +322,53 @@
             border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(102,126,234,0.4);
+            box-shadow: 0 6px 20px rgba(102,126,234,0.4);
             transition: all 0.3s ease;
             z-index: 1000;
+            font-size: 16px;
         }
 
         .print-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102,126,234,0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102,126,234,0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .nav-tab {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .sub-nav-buttons {
+                flex-direction: column;
+            }
+            
+            .sub-nav-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav-container,
+            .print-button {
+                display: none;
+            }
+            
+            body {
+                background: white;
+            }
+            
+            .section {
+                display: block !important;
+                page-break-before: always;
+            }
         }
     </style>
 </head>
@@ -207,13 +376,13 @@
     <!-- Navigation -->
     <nav class="nav-container">
         <div class="nav-content">
-            <h1 class="nav-title">Forefront Assessment & Protocol System</h1>
+            <h1 class="nav-title">⚡ Forefront Assessment & Protocol System</h1>
             <div class="nav-tabs">
-                <button class="nav-tab active" onclick="showSection('shoulder-tests', this)">Shoulder Tests</button>
-                <button class="nav-tab" onclick="showSection('ac-joint-tests', this)">AC Joint Tests</button>
-                <button class="nav-tab" onclick="showSection('rotator-cuff-tests', this)">Rotator Cuff Tests</button>
-                <button class="nav-tab" onclick="showSection('protocols', this)">Treatment Protocols</button>
-                <button class="nav-tab" onclick="showSection('decision-tree', this)">Clinical Decision</button>
+                <button class="nav-tab active" onclick="showSection('shoulder-tests', this)">🦴 Shoulder Tests</button>
+                <button class="nav-tab" onclick="showSection('ac-joint-tests', this)">🔗 AC Joint Tests</button>
+                <button class="nav-tab" onclick="showSection('rotator-cuff-tests', this)">💪 Rotator Cuff Tests</button>
+                <button class="nav-tab" onclick="showSection('protocols', this)">📋 Treatment Protocols</button>
+                <button class="nav-tab" onclick="showSection('decision-tree', this)">🎯 Clinical Decision</button>
             </div>
         </div>
     </nav>
@@ -225,18 +394,131 @@
         <section id="shoulder-tests" class="section active">
             <div class="category-header">
                 <h2>Scapular Dyskinesis Assessment Battery</h2>
-                <p>Complete testing protocol for scapular movement dysfunction</p>
+                <p>Complete evidence-based testing protocol for scapular movement dysfunction</p>
             </div>
 
             <div class="test-card">
-                <h3>Tests Available:</h3>
-                <ul>
-                    <li>McClure Scapular Dyskinesis Test</li>
-                    <li>Scapular Assistance Test (SAT)</li>
-                    <li>Scapular Retraction Test (SRT)</li>
-                    <li>Lateral Scapular Slide Test (LSST)</li>
-                    <li>Wall Push-Up Plus Test</li>
-                </ul>
+                <h3>1. McClure Scapular Dyskinesis Test</h3>
+                <div class="test-details">
+                    <h4>Setup & Execution:</h4>
+                    <ul>
+                        <li><strong>Position:</strong> Patient standing, 3-5 lb weights in hands</li>
+                        <li><strong>Movement:</strong> 
+                            <ul>
+                                <li>Flexion Test: Arms forward to overhead (5 reps)</li>
+                                <li>Abduction Test: Arms to side overhead (5 reps)</li>
+                                <li>Tempo: 3 seconds up, 3 seconds down</li>
+                            </ul>
+                        </li>
+                        <li><strong>Observation:</strong> Examiner observes from behind</li>
+                    </ul>
+                    
+                    <h4>Grading System:</h4>
+                    <ul>
+                        <li><strong>Normal:</strong> Smooth, symmetrical movement</li>
+                        <li><strong>Subtle Dyskinesis:</strong> Slight winging (&lt;1cm), mild dysrhythmia</li>
+                        <li><strong>Obvious Dyskinesis:</strong> Clear winging (&gt;1cm), marked dysrhythmia</li>
+                        <li><strong>Severe:</strong> Gross winging, inability to elevate</li>
+                    </ul>
+                    
+                    <h4>Pattern Classification (Kibler/Sciascia):</h4>
+                    <ul>
+                        <li><strong>Pattern 1:</strong> Inferior medial border prominence</li>
+                        <li><strong>Pattern 2:</strong> Medial border prominence</li>
+                        <li><strong>Pattern 3:</strong> Superior border elevation</li>
+                        <li><strong>Pattern 4:</strong> Symmetric dysfunction</li>
+                    </ul>
+                    <span class="sensitivity-specificity">Sensitivity: 75% | Specificity: 80%</span>
+                </div>
+            </div>
+
+            <div class="test-card">
+                <h3>2. Scapular Assistance Test (SAT)</h3>
+                <div class="test-details">
+                    <h4>Purpose:</h4>
+                    <p>Differentiate weak serratus anterior from inhibited serratus anterior</p>
+                    
+                    <h4>Execution:</h4>
+                    <ol>
+                        <li>Patient performs painful arc movement</li>
+                        <li>Examiner manually assists upward rotation and posterior tilt</li>
+                        <li>Place one hand on inferior angle, one on superior aspect</li>
+                        <li>Assist movement through arc</li>
+                    </ol>
+                    
+                    <h4>Interpretation:</h4>
+                    <ul>
+                        <li><strong>Positive SAT:</strong> Pain decreases with assistance = serratus inhibition</li>
+                        <li><strong>Negative SAT:</strong> No change = true weakness or other pathology</li>
+                    </ul>
+                    <span class="sensitivity-specificity">Clinical Value: High for treatment planning</span>
+                </div>
+            </div>
+
+            <div class="test-card">
+                <h3>3. Scapular Retraction Test (SRT)</h3>
+                <div class="test-details">
+                    <h4>Purpose:</h4>
+                    <p>Assess impact of scapular position on shoulder strength</p>
+                    
+                    <h4>Execution:</h4>
+                    <ol>
+                        <li>Test shoulder elevation strength at 90° scaption</li>
+                        <li>Manually retract and stabilize scapula</li>
+                        <li>Retest strength in stabilized position</li>
+                    </ol>
+                    
+                    <h4>Interpretation:</h4>
+                    <ul>
+                        <li><strong>Positive:</strong> &gt;20% strength increase with stabilization</li>
+                        <li>Indicates scapular dyskinesis contributing to weakness</li>
+                    </ul>
+                    <span class="sensitivity-specificity">Clinical correlation: 85%</span>
+                </div>
+            </div>
+
+            <div class="test-card">
+                <h3>4. Lateral Scapular Slide Test (LSST)</h3>
+                <div class="test-details">
+                    <h4>Positions & Measurements:</h4>
+                    <ol>
+                        <li><strong>Position 1:</strong> Arms at side
+                            <ul><li>Measure from inferior angle to spinous process</li></ul>
+                        </li>
+                        <li><strong>Position 2:</strong> Hands on hips (45° abduction)
+                            <ul><li>Same measurement</li></ul>
+                        </li>
+                        <li><strong>Position 3:</strong> Arms at 90° abduction, max internal rotation
+                            <ul><li>Same measurement</li></ul>
+                        </li>
+                    </ol>
+                    
+                    <h4>Interpretation:</h4>
+                    <ul>
+                        <li>Side-to-side difference &gt;1.5cm = significant asymmetry</li>
+                        <li>Document all three positions for pattern recognition</li>
+                    </ul>
+                    <span class="sensitivity-specificity">Reliability: ICC 0.75-0.85</span>
+                </div>
+            </div>
+
+            <div class="test-card">
+                <h3>5. Muscle Length Assessments</h3>
+                <div class="test-details">
+                    <h4>Pectoralis Minor Length Test:</h4>
+                    <ul>
+                        <li><strong>Setup:</strong> Supine, arm at side</li>
+                        <li><strong>Measurement:</strong> Distance from table to posterior acromion</li>
+                        <li><strong>Interpretation:</strong> &gt;2.5cm = shortened pec minor</li>
+                    </ul>
+                    
+                    <h4>Levator Scapulae Length Test:</h4>
+                    <ul>
+                        <li><strong>Setup:</strong> Seated, stabilize scapula in depression</li>
+                        <li><strong>Movement:</strong> Rotate head away, flex forward</li>
+                        <li><strong>Positive:</strong> Reproduction of upper trap/neck symptoms</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -248,13 +530,91 @@
             </div>
 
             <div class="test-card">
-                <h3>Tests Available:</h3>
-                <ul>
-                    <li>Cross-Body Adduction Test</li>
-                    <li>O'Brien's Test</li>
-                    <li>Paxinos Test</li>
-                    <li>AC Resisted Extension Test</li>
-                </ul>
+                <h3>1. Cross-Body Adduction Test (Chronopoulos)</h3>
+                <div class="test-details">
+                    <h4>Execution:</h4>
+                    <ul>
+                        <li><strong>Position:</strong> Patient seated or standing</li>
+                        <li><strong>Movement:</strong> Passive horizontal adduction across body</li>
+                        <li><strong>Positive:</strong> Pain at AC joint line</li>
+                    </ul>
+                    
+                    <h4>Clinical Value:</h4>
+                    <ul>
+                        <li>Combined with AC joint tenderness</li>
+                        <li>Best single test for AC pathology</li>
+                    </ul>
+                    <span class="sensitivity-specificity">Sensitivity: 77% | Specificity: 79%</span>
+                </div>
+            </div>
+
+            <div class="test-card">
+                <h3>2. O'Brien's Test (Modified for AC)</h3>
+                <div class="test-details">
+                    <h4>Execution:</h4>
+                    <ul>
+                        <li><strong>Position:</strong> 90° forward flexion, 10° adduction</li>
+                        <li><strong>Test:</strong> Thumb down, resist downward pressure</li>
+                        <li><strong>Comparison:</strong> Repeat with thumb up</li>
+                        <li><strong>Positive:</strong> Pain at AC joint specifically (not deep shoulder)</li>
+                    </ul>
+                    
+                    <h4>Differentiation:</h4>
+                    <ul>
+                        <li>AC joint pain = AC pathology</li>
+                        <li>Deep shoulder pain = Labral pathology</li>
+                    </ul>
+                    <span class="sensitivity-specificity">Sensitivity: 75% | Specificity: 80%</span>
+                </div>
+            </div>
+
+            <div class="test-card">
+                <h3>3. Paxinos Test</h3>
+                <div class="test-details">
+                    <h4>Execution:</h4>
+                    <ul>
+                        <li><strong>Position:</strong> Patient seated, arm relaxed</li>
+                        <li><strong>Test:</strong> Examiner applies anterosuperior pressure to mid-clavicle</li>
+                        <li><strong>Simultaneously:</strong> Apply posterosuperior pressure to spine of scapula</li>
+                        <li><strong>Positive:</strong> Pain at AC joint</li>
+                    </ul>
+                    
+                    <h4>Clinical Note:</h4>
+                    <p>Excellent for differentiating AC from subacromial pathology</p>
+                    <span class="sensitivity-specificity">Sensitivity: 79% | Specificity: 89%</span>
+                </div>
+            </div>
+
+            <div class="test-card">
+                <h3>4. AC Resisted Extension Test</h3>
+                <div class="test-details">
+                    <h4>Execution:</h4>
+                    <ul>
+                        <li><strong>Position:</strong> Prone, arm at 90° abduction</li>
+                        <li><strong>Test:</strong> Resist horizontal extension</li>
+                        <li><strong>Positive:</strong> Specific AC joint pain</li>
+                    </ul>
+                    
+                    <h4>Value:</h4>
+                    <p>Isolates AC stress without impingement</p>
+                    <span class="sensitivity-specificity">Clinical correlation: High</span>
+                </div>
+            </div>
+
+            <div class="test-card">
+                <h3>5. Active Compression Test (Mazzocca)</h3>
+                <div class="test-details">
+                    <h4>Purpose:</h4>
+                    <p>Determine Type IIIA vs IIIB AC separation</p>
+                    
+                    <h4>Execution:</h4>
+                    <ul>
+                        <li>Patient actively shrugs shoulders</li>
+                        <li>Observe clavicle reduction</li>
+                        <li><strong>Type IIIA:</strong> Reduces with muscle activation</li>
+                        <li><strong>Type IIIB:</strong> No reduction (surgical consideration)</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -266,15 +626,94 @@
             </div>
 
             <div class="test-card">
-                <h3>Tests Available:</h3>
-                <ul>
-                    <li>Empty Can Test (Jobe's)</li>
-                    <li>External Rotation Lag Sign</li>
-                    <li>Hornblower's Test</li>
-                    <li>Lift-Off Test</li>
-                    <li>Belly Press Test</li>
-                    <li>Bear Hug Test</li>
-                </ul>
+                <h3>Supraspinatus Tests</h3>
+                <div class="test-details">
+                    <h4>1. Empty Can Test (Jobe's):</h4>
+                    <ul>
+                        <li><strong>Position:</strong> 90° abduction, 30° horizontal adduction, full internal rotation</li>
+                        <li><strong>Test:</strong> Resist downward pressure at wrist</li>
+                        <li><strong>Positive:</strong> Weakness or pain</li>
+                    </ul>
+                    <span class="sensitivity-specificity">Sensitivity: 86% | Specificity: 50%</span>
+                    
+                    <h4>2. Full Can Test (Kelly Modification):</h4>
+                    <ul>
+                        <li>Same position but thumb up (external rotation)</li>
+                        <li>Less impingement provocation</li>
+                        <li>Better for isolating strength</li>
+                    </ul>
+                    <span class="sensitivity-specificity">Sensitivity: 77% | Specificity: 74%</span>
+                </div>
+            </div>
+
+            <div class="test-card">
+                <h3>Infraspinatus/Teres Minor Tests</h3>
+                <div class="test-details">
+                    <h4>1. External Rotation Lag Sign:</h4>
+                    <ul>
+                        <li><strong>Position:</strong> Passive ER to 90°, elbow at 90°</li>
+                        <li><strong>Test:</strong> Release and patient maintains</li>
+                        <li><strong>Positive:</strong> &gt;10° lag</li>
+                        <li><strong>Indicates:</strong> Infraspinatus tear</li>
+                    </ul>
+                    <span class="sensitivity-specificity">Specificity: 98%</span>
+                    
+                    <h4>2. Hornblower's Test (Teres Minor):</h4>
+                    <ul>
+                        <li>90° abduction, 90° external rotation</li>
+                        <li>Resist external rotation</li>
+                        <li><strong>Positive:</strong> Unable to maintain position</li>
+                        <li><strong>Indicates:</strong> Massive tear including teres minor</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="test-card">
+                <h3>Subscapularis Tests</h3>
+                <div class="test-details">
+                    <h4>1. Lift-Off Test (Gerber):</h4>
+                    <ul>
+                        <li><strong>Position:</strong> Hand behind back</li>
+                        <li><strong>Test:</strong> Lift hand off from body</li>
+                        <li><strong>Positive:</strong> Unable to lift or maintain</li>
+                        <li>Tests lower subscapularis</li>
+                    </ul>
+                    
+                    <h4>2. Belly Press Test:</h4>
+                    <ul>
+                        <li>Hand on belly, elbow forward</li>
+                        <li>Press into belly maintaining elbow position</li>
+                        <li><strong>Positive:</strong> Elbow drops back</li>
+                        <li>Tests upper subscapularis</li>
+                    </ul>
+                    
+                    <h4>3. Bear Hug Test:</h4>
+                    <ul>
+                        <li>Hand on opposite shoulder</li>
+                        <li>Resist lifting hand off shoulder</li>
+                        <li>Most sensitive for subscapularis</li>
+                    </ul>
+                    <span class="sensitivity-specificity">Sensitivity: 92%</span>
+                </div>
+            </div>
+
+            <div class="test-card">
+                <h3>3-Test Cluster for Full-Thickness Tears</h3>
+                <div class="test-details">
+                    <h4>Components:</h4>
+                    <ol>
+                        <li><strong>Painful Arc</strong> (60-120°)</li>
+                        <li><strong>Drop Arm Test</strong></li>
+                        <li><strong>Infraspinatus Weakness</strong> (ER at 0°)</li>
+                    </ol>
+                    
+                    <h4>Interpretation:</h4>
+                    <ul>
+                        <li>All 3 positive = 98% specific for full-thickness tear</li>
+                        <li>LR+ = 15.9</li>
+                    </ul>
+                    <span class="sensitivity-specificity">Highest diagnostic value when combined</span>
+                </div>
             </div>
         </section>
 
@@ -288,46 +727,225 @@
             <div class="sub-nav">
                 <div class="sub-nav-title">Select Protocol Category:</div>
                 <div class="sub-nav-buttons">
-                    <button class="sub-nav-btn active" onclick="showProtocolCategory('scapular', this)">Scapular Protocols (S1-S5)</button>
-                    <button class="sub-nav-btn" onclick="showProtocolCategory('ac-joint-protocols', this)">AC Joint Protocols</button>
-                    <button class="sub-nav-btn" onclick="showProtocolCategory('rotator-cuff-protocols', this)">Rotator Cuff Protocols</button>
+                    <button class="sub-nav-btn active" onclick="showProtocolCategory('scapular', this)">🦴 Scapular Protocols</button>
+                    <button class="sub-nav-btn" onclick="showProtocolCategory('ac-joint-protocols', this)">🔗 AC Joint Protocols</button>
+                    <button class="sub-nav-btn" onclick="showProtocolCategory('rotator-cuff-protocols', this)">💪 Rotator Cuff Protocols</button>
                 </div>
             </div>
 
             <!-- Scapular Protocols -->
             <div id="scapular" class="test-subsection active">
                 <div class="test-card">
-                    <h3>Scapular Protocols Available:</h3>
-                    <ul>
-                        <li>Protocol S1: Serratus Anterior Insufficiency</li>
-                        <li>Protocol S2: Lower Trapezius Insufficiency</li>
-                        <li>Protocol S3: Pectoralis Minor Dominance</li>
-                        <li>Protocol S4: Global Dyskinesis</li>
-                        <li>Protocol S5: Thoracic-Driven Dysfunction</li>
-                    </ul>
+                    <h3>Protocol S1: Serratus Anterior Insufficiency</h3>
+                    
+                    <div class="phase-container">
+                        <div class="phase-header">Phase 1: Isolation & Activation (Weeks 1-2)</div>
+                        
+                        <div class="exercise-item">
+                            <h5>Daily Routine A - Morning Activation (10 minutes)</h5>
+                            <div class="exercise-details">
+                                <strong>1. Serratus Breathing Prep (2 minutes)</strong>
+                                <ul>
+                                    <li>Position: Side-lying, affected side up</li>
+                                    <li>"Breathe into your armpit"</li>
+                                    <li>10 breaths focusing on lateral expansion</li>
+                                </ul>
+                                
+                                <strong>2. Wall Slide Progression (3 sets)</strong>
+                                <ul>
+                                    <li>Level 1: Forearm wall slides - 2×12 reps</li>
+                                    <li>Level 2: Add resistance band - 2×10 reps</li>
+                                    <li>Cue: "Push the wall away like it's falling"</li>
+                                </ul>
+                                
+                                <strong>3. Supine Serratus Punch (3 sets)</strong>
+                                <ul>
+                                    <li>Light weight or band</li>
+                                    <li>Hold 2 seconds at top</li>
+                                    <li>3×10 reps</li>
+                                    <li>Week 1: No weight | Week 2: 2-5 lbs</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="exercise-item">
+                            <h5>Daily Routine B - Evening Integration (10 minutes)</h5>
+                            <div class="exercise-details">
+                                <strong>1. Quadruped Serratus Rocks (2×15)</strong>
+                                <ul>
+                                    <li>"Push floor away maximally"</li>
+                                    <li>"Like doing push-ups with straight arms"</li>
+                                </ul>
+                                
+                                <strong>2. Bear Crawl Hold Progression</strong>
+                                <ul>
+                                    <li>Week 1: Static hold (3×20 seconds)</li>
+                                    <li>Week 2: Add shoulder taps (3×10 taps)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="phase-container">
+                        <div class="phase-header">Phase 2: Strengthening (Weeks 3-4)</div>
+                        
+                        <div class="exercise-item">
+                            <h5>Progressive Loading Program</h5>
+                            <div class="exercise-details">
+                                <strong>Push-Up Plus Progression:</strong>
+                                <ul>
+                                    <li>Week 3: Incline push-up plus (3×8-10)</li>
+                                    <li>Week 4: Floor push-up plus (3×6-8)</li>
+                                </ul>
+                                
+                                <strong>Serratus Carry Series:</strong>
+                                <ul>
+                                    <li>Overhead carry: 3×20 yards</li>
+                                    <li>Bottoms-up KB carry: 3×15 yards each</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-card">
+                    <h3>Protocol S2: Lower Trapezius Insufficiency</h3>
+                    
+                    <div class="phase-container">
+                        <div class="phase-header">Phase 1: Isolation & Facilitation (Weeks 1-2)</div>
+                        
+                        <div class="exercise-item">
+                            <h5>Activation Focus (12 minutes)</h5>
+                            <div class="exercise-details">
+                                <strong>Prone Y-Raise Progression:</strong>
+                                <ul>
+                                    <li>45° incline bench support</li>
+                                    <li>Arms at 120° (10 and 2 o'clock)</li>
+                                    <li>"Pull shoulder blades down to back pockets"</li>
+                                    <li>2×12 no weight → Add 2-second holds</li>
+                                </ul>
+                                
+                                <strong>Wall Slide Y-Pattern:</strong>
+                                <ul>
+                                    <li>Back to wall, arms in Y</li>
+                                    <li>"As arms go up, shoulders go down"</li>
+                                    <li>3×10 slow reps</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-card">
+                    <h3>Protocol S3: Pectoralis Minor Dominance</h3>
+                    
+                    <div class="phase-container">
+                        <div class="phase-header">Phase 1: Release & Mobilize (Weeks 1-2)</div>
+                        
+                        <div class="exercise-item">
+                            <h5>Soft Tissue & Stretching (15 minutes)</h5>
+                            <div class="exercise-details">
+                                <strong>Pec Minor Release:</strong>
+                                <ul>
+                                    <li>Lacrosse ball below clavicle</li>
+                                    <li>Pin and move arm in circles</li>
+                                    <li>90 seconds each side</li>
+                                </ul>
+                                
+                                <strong>Three-Position Pec Stretch:</strong>
+                                <ul>
+                                    <li>Low (45°): Hold 45 seconds</li>
+                                    <li>Medium (90°): Hold 45 seconds</li>
+                                    <li>High (135°): Hold 45 seconds</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-card">
+                    <h3>Protocol S4: Global Dyskinesis</h3>
+                    <p><em>Comprehensive reconditioning for multiple dysfunction patterns</em></p>
+                </div>
+
+                <div class="test-card">
+                    <h3>Protocol S5: Thoracic-Driven Dysfunction</h3>
+                    <p><em>Focus on thoracic mobility and breathing patterns</em></p>
                 </div>
             </div>
 
             <!-- AC Joint Protocols -->
             <div id="ac-joint-protocols" class="test-subsection">
                 <div class="test-card">
-                    <h3>AC Joint Protocols Available:</h3>
-                    <ul>
-                        <li>Protocol AC1: Type I-II Conservative</li>
-                        <li>Protocol AC2: Type III Conservative</li>
-                        <li>Protocol AC3: Post-Traumatic Arthropathy</li>
-                    </ul>
+                    <h3>Protocol AC1: Type I-II Conservative Management</h3>
+                    
+                    <div class="phase-container">
+                        <div class="phase-header">Phase 1: Protection & Pain Relief (Weeks 1-2)</div>
+                        
+                        <div class="exercise-item">
+                            <h5>Pain Management Protocol</h5>
+                            <div class="exercise-details">
+                                <strong>Cryotherapy:</strong>
+                                <ul>
+                                    <li>20-10-20 method</li>
+                                    <li>Every 2-3 hours initially</li>
+                                </ul>
+                                
+                                <strong>Early Motion (Type I only):</strong>
+                                <ul>
+                                    <li>Codman's pendulum modified</li>
+                                    <li>Table support</li>
+                                    <li>3×30 seconds</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-card">
+                    <h3>Protocol AC2: Type III Conservative</h3>
+                    <p><em>Strict immobilization followed by progressive loading</em></p>
+                </div>
+
+                <div class="test-card">
+                    <h3>Protocol AC3: Post-Traumatic Arthropathy</h3>
+                    <p><em>Long-term management strategies</em></p>
                 </div>
             </div>
 
             <!-- Rotator Cuff Protocols -->
             <div id="rotator-cuff-protocols" class="test-subsection">
                 <div class="test-card">
-                    <h3>Rotator Cuff Protocols Available:</h3>
-                    <ul>
-                        <li>Protocol RC1: Reactive Tendinopathy</li>
-                        <li>Protocol RC2: Degenerative Tendinopathy</li>
-                    </ul>
+                    <h3>Protocol RC1: Reactive Tendinopathy</h3>
+                    
+                    <div class="phase-container">
+                        <div class="phase-header">Phase 1: Relative Rest & Pain Management (Days 1-7)</div>
+                        
+                        <div class="exercise-item">
+                            <h5>Isometric Loading Protocol</h5>
+                            <div class="exercise-details">
+                                <strong>Position Progression:</strong>
+                                <ul>
+                                    <li>Day 1-2: Arm at side</li>
+                                    <li>Day 3-4: 30° abduction</li>
+                                    <li>Day 5-7: 45° abduction</li>
+                                </ul>
+                                
+                                <strong>Execution:</strong>
+                                <ul>
+                                    <li>5 reps × 45 seconds</li>
+                                    <li>70% maximum voluntary contraction</li>
+                                    <li>2 minutes rest between</li>
+                                    <li>Analgesic effect: Immediate, lasts 45 minutes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-card">
+                    <h3>Protocol RC2: Degenerative Tendinopathy</h3>
+                    <p><em>Heavy slow resistance training approach</em></p>
                 </div>
             </div>
         </section>
@@ -336,21 +954,95 @@
         <section id="decision-tree" class="section">
             <div class="category-header">
                 <h2>Clinical Decision Framework</h2>
-                <p>Evidence-based pathway from assessment to treatment</p>
+                <p>Evidence-based pathway from assessment to treatment selection</p>
             </div>
 
-            <div class="test-card">
-                <h3>Decision Pathways:</h3>
-                <p>Assessment findings lead to specific protocol recommendations</p>
+            <div class="decision-box">
+                <h3>Step 1: Primary Assessment</h3>
+                <div class="decision-step">
+                    <h4>Is there pain present?</h4>
+                    <ul>
+                        <li><strong>YES →</strong> Address pain first (Protocol RC1 for acute, AC protocols for AC pain)</li>
+                        <li><strong>NO →</strong> Continue to movement assessment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="decision-box">
+                <h3>Step 2: Movement Quality Assessment</h3>
+                <div class="decision-step">
+                    <h4>Scapular Dyskinesis Pattern?</h4>
+                    <ul>
+                        <li><strong>Pattern 1 (Inferior border) →</strong> Protocol S1 (Serratus focus)</li>
+                        <li><strong>Pattern 2 (Medial border) →</strong> Protocol S2 (Lower trap focus)</li>
+                        <li><strong>Pattern 3 (Superior elevation) →</strong> Protocol S3 (Pec minor focus)</li>
+                        <li><strong>Pattern 4 (Global) →</strong> Protocol S4 (Complete reconditioning)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="decision-box">
+                <h3>Step 3: Special Test Findings</h3>
+                <div class="decision-step">
+                    <h4>Positive AC Joint Tests?</h4>
+                    <ul>
+                        <li><strong>Cross-body + O'Brien's positive →</strong> AC Protocol selection based on grade</li>
+                        <li><strong>Type I-II →</strong> Protocol AC1</li>
+                        <li><strong>Type III →</strong> Protocol AC2</li>
+                    </ul>
+                </div>
+                
+                <div class="decision-step">
+                    <h4>Positive Rotator Cuff Tests?</h4>
+                    <ul>
+                        <li><strong>Empty can + Lag signs →</strong> RC protocols</li>
+                        <li><strong>Acute/reactive →</strong> Protocol RC1</li>
+                        <li><strong>Chronic/degenerative →</strong> Protocol RC2</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="decision-box">
+                <h3>Step 4: Reassessment Schedule</h3>
+                <div class="decision-step">
+                    <h4>Progress Monitoring:</h4>
+                    <ul>
+                        <li><strong>Week 2:</strong> Pain reduction expected (30-50%)</li>
+                        <li><strong>Week 4:</strong> Movement pattern improvement</li>
+                        <li><strong>Week 6:</strong> Functional improvement</li>
+                        <li><strong>Week 8:</strong> Return to activity decision</li>
+                    </ul>
+                    
+                    <h4>Red Flags for Referral:</h4>
+                    <ul>
+                        <li>No improvement after 4 weeks</li>
+                        <li>Night pain unrelenting</li>
+                        <li>Rapid loss of function</li>
+                        <li>Suspected full-thickness tear in young athlete</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="decision-box">
+                <h3>Clinical Pearls</h3>
+                <div class="decision-step">
+                    <ul>
+                        <li><strong>Always assess scapular mechanics</strong> - Foundation for all shoulder function</li>
+                        <li><strong>Breathing matters</strong> - Poor breathing patterns affect shoulder mechanics</li>
+                        <li><strong>24-hour rule</strong> - If symptoms worse 24 hours after exercise, reduce load</li>
+                        <li><strong>Quality over quantity</strong> - Perfect form with less weight beats poor form with more</li>
+                        <li><strong>Address the chain</strong> - Don't forget thoracic spine and core</li>
+                    </ul>
+                </div>
             </div>
         </section>
     </div>
 
     <!-- Print Button -->
-    <button class="print-button" onclick="window.print()">📄 Print</button>
+    <button class="print-button" onclick="window.print()">📄 Print System</button>
 
     <script>
-        // Fixed navigation functions with proper event parameter passing
+        // Navigation functions
         function showSection(sectionId, buttonElement) {
             // Hide all sections
             document.querySelectorAll('.section').forEach(section => {
@@ -374,7 +1066,7 @@
             }
         }
 
-        // Fixed protocol category navigation
+        // Protocol category navigation
         function showProtocolCategory(categoryId, buttonElement) {
             // Hide all protocol subsections
             document.querySelectorAll('.test-subsection').forEach(subsection => {
@@ -400,8 +1092,7 @@
 
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
-            // Verify all sections exist
-            console.log('System initialized successfully');
+            console.log('Forefront Assessment System initialized successfully');
             
             // Set default active section
             const firstSection = document.querySelector('.section');
@@ -412,6 +1103,33 @@
             const firstTab = document.querySelector('.nav-tab');
             if (firstTab) {
                 firstTab.classList.add('active');
+            }
+            
+            // Add smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const tabs = document.querySelectorAll('.nav-tab');
+            const activeTab = document.querySelector('.nav-tab.active');
+            let currentIndex = Array.from(tabs).indexOf(activeTab);
+            
+            if (e.key === 'ArrowRight' && currentIndex < tabs.length - 1) {
+                tabs[currentIndex + 1].click();
+            } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                tabs[currentIndex - 1].click();
             }
         });
     </script>

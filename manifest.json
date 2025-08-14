@@ -1,0 +1,10 @@
+{
+  "name": "Forefront Assessment System",
+  "short_name": "Forefront",
+  "description": "Complete shoulder assessment and treatment protocols",
+  "start_url": "/forefront-assessment/",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#667eea",
+  "orientation": "any"
+}
